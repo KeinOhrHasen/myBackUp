@@ -1,0 +1,28 @@
+<!-- Shared Back Bar -->
+<div class="fixed">
+    <mat-toolbar class="navbar"  [ngClass]="{'floatLeft': idDashboard  }"> 
+      <!-- Back button -->
+      <button mat-raised-button color="primary" class="back-btn" *ngIf="!(router.url.endsWith('dashboard'))">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <a routerLink="/dashboard" routerLinkActive="active">to dashBoard</a>
+      </button>
+  
+      <!-- Memu -->
+      <button mat-icon-button [matMenuTriggerFor]="setting">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+      </button>
+
+    </mat-toolbar>
+    <mat-menu #setting="matMenu">
+      <button mat-menu-item >
+          <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+          <a routerLink="/dashboard/find-film/choosed">Choosed</a>
+      </button>
+      <button mat-menu-item >
+        <i class="fas fa-user"></i> <span>User Profile</span>
+      </button>
+      <button mat-menu-item (click)="authService.SignOut()">
+        <i class="fas fa-sign-out-alt"></i><span>Log out</span>
+      </button>
+    </mat-menu>
+  </div>

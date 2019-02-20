@@ -1,0 +1,23 @@
+<!-- Navigation -->
+<app-back-bar></app-back-bar>
+
+<!-- Google Map -->
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<!-- Autocomplete Postcode field -->
+<div class="search-postcode-wrapper">
+  <h4 class="method-title">Search postcode place</h4>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <!-- Show autocomplete option -->
+        <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>

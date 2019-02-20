@@ -1,0 +1,62 @@
+<!-- If  obsSuggestedID$ has at least one element - show it
+else - show similar search result -->
+<div *ngIf="((obsSuggestedID$ | async)?.length > 0) && 
+  (router.url.indexOf('/film/') > -1) ; else showWholeFilmList"
+  class="showList">
+
+  <!-- Suggested list -->
+  <mat-toolbar class="block-title"><h3>Suggested</h3></mat-toolbar>
+  <div>
+    <div class="card-list">
+        <div *ngFor="let film of filmArray$ | async "
+        [class.selected]="film.imdbID === selectedId"> 
+        <div *ngIf="obsSuggestedID$.value.includes(film.imdbID)">
+          <a (click)="handleClickFromRouter(film.imdbID)" [routerLink]="['/dashboard/find-film/film', film.imdbID]">
+            <mat-card class="example-card">
+              <mat-card-header>
+                  <mat-card-title>{{film.Title}}</mat-card-title>
+              </mat-card-header>
+              <img mat-card-image src="{{film.Poster}}" alt="{{film.Title}}"
+              onError="this.src='../../../assets/film.png'">
+              <p>
+                <span *ngFor="let g of film.Genre.split(',')" class="genre"> {{g}} </span>
+              </p>
+              <i *ngIf="(SelectedIDs$| async)?.includes(film.imdbID)" class="fa fa-check-circle" aria-hidden="true"></i>
+            </mat-card>
+          </a>
+          <button [id]="film.imdbID" (click)="selectHandler($event)" class="selectFilm">select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Whole film list -->
+<ng-template #showWholeFilmList>
+  <mat-toolbar class="block-title"><h3>All films</h3></mat-toolbar>
+    
+    <div class="card-list">
+      <div *ngFor="let film of filmArray$ | async "
+        [class.selected]="film.imdbID === selectedId">
+        <a  [routerLink]="['/dashboard/find-film/film', film.imdbID]">
+          <mat-card class="example-card">
+            <mat-card-header class="film-title"> 
+                <!-- film.imdbID {{film.imdbID}} -->
+                <mat-card-title>{{film.Title}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{film.Poster}}" alt="{{film.Title}}"
+            onError="this.src='../../../assets/film.png'">
+            <p>
+              <span *ngFor="let g of film.Genre.split(',')" class="genre"> {{g}} </span>
+            </p>
+            <i *ngIf="(SelectedIDs$| async)?.includes(film.imdbID)" class="fa fa-check-circle" aria-hidden="true"></i>
+          </mat-card>
+          
+        </a>
+        <button [id]="film.imdbID" (click)="selectHandler($event)" class="selectFilm" >select</button>
+        
+      </div>
+    </div>
+</ng-template>

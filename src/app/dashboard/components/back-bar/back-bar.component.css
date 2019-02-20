@@ -1,0 +1,32 @@
+.fixed{
+    position: fixed;
+    width: 100%;
+    top:0;
+    margin-bottom: 100px;
+    z-index: 1000;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(93, 93, 93);
+}
+
+.floatLeft{
+    display: flex;
+    justify-content: flex-end
+}
+
+.fa-cog{
+    font-size: 20px
+}
+
+.back-btn{
+    padding: 3px 15px;
+    margin-left:15px; 
+}
+
+.back-btn a {color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}

@@ -1,0 +1,14 @@
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.choosed-wrp{
+    margin-top: 150px;
+    padding-left: 50px;
+}
+
+hr{
+    margin-bottom: 50px;
+}

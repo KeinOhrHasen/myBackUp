@@ -1,0 +1,61 @@
+.card-list{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+  
+.example-card{
+    width: 200px;
+    height: 400px;
+    font-size: 14px;
+    margin: 15px;
+    position: relative;
+}
+
+.mat-card-title{
+    font-size: 14px;
+}
+
+img{
+    max-width: 200px;
+    max-height: 265px;
+}
+
+.block-title{
+    margin-top: 100px;
+}
+
+.film-title{
+    height: 45px;
+    overflow: hidden;
+}
+
+.fa-check-circle{
+    color:rgb(21, 179, 0);
+    font-size:25px;
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+
+.genre{
+    background: rgb(232, 232, 232);
+    border-radius: 5px;
+    padding: 1px 10px;
+    margin: 3px;
+    color: #37502f;
+}
+
+.selectFilm{
+    width: 165px;
+    margin: 0 31px;
+    background-color: #828282;
+    border: none;
+    color: #000386;
+    font-size: 15px;
+    font-weight: bolder;
+}
+  
+.showList{
+    margin-bottom: 100px;
+}

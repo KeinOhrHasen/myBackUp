@@ -1,0 +1,15 @@
+<!-- Navigation -->
+<app-back-bar></app-back-bar>
+
+<div class="choosed-wrp" >
+  <h2>Here are your choosed film</h2>
+  <hr>
+  <div *ngFor="let film of SelectedFilms$ | async" >
+    <div>
+      
+      <img [src]="film.Poster" alt="Film Poster">
+      <button [id]="film.imdbID" (click)="deleteHandler($event)" >{{film.Title}}
+        <i class="fa fa-times" aria-hidden="true"></i></button>  
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.search-container,
+.pagination-container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    background: rgb(255, 255, 255);
+}
+
+.search-container{
+    margin-top: 150px;
+}
+
+.toPage{
+    border-radius: 5px;
+    width: 114px;
+    padding: 1px 31px;
+    border: 1px solid #c5c5c5;
+    margin: 0px 0;
+    font-size: 15px;
+}
+
+.pagination-container{
+    margin-top: 50px;;
+}
+
+.page-info{
+    font-size: 14px;
+    color:#3c22ff;
+    margin: 0;
+    text-align: center;
+}

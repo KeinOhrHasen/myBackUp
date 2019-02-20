@@ -1,0 +1,64 @@
+<!-- Navigation -->
+<app-back-bar></app-back-bar>
+
+<router-outlet></router-outlet>
+
+<!-- Search Field -->
+
+<div *ngIf="!(router.url.indexOf('/film/') > -1)"> 
+  <mat-toolbar class="search-container">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <button (click) = "handleRequest()" mat-stroked-button color="primary" class="request-btn">request</button> 
+      </mat-form-field>
+    </form>
+  </mat-toolbar>
+</div>  
+
+
+
+
+<!-- app-pagination -->
+
+<div *ngIf="!(router.url.indexOf('/film/') > -1)"> 
+  <mat-toolbar class="pagination-container" >
+    <button mat-stroked-button color="primary"
+      class="prev-btn" 
+      (click) = "handlePrev()" 
+      [disabled]="pagination.currentPageNmb === 1 || pagination.pagesAmount ===1" >
+      prev
+    </button>
+  
+    <input 
+      type="text" 
+      class="toPage" 
+      placeholder="go to page" 
+      #inputPage 
+      [value]="pagination.currentPageNmb"> 
+    <button (click) = "handleGoTo()" mat-stroked-button color="primary" >go to</button>
+
+    <button mat-stroked-button color="primary"
+      class="next-btn" 
+      (click) = "handleNext()" 
+      [disabled]="pagination.currentPageNmb == pagination.pagesAmount">
+      next
+    </button>
+  </mat-toolbar>
+  <div>   
+    <p *ngIf="isResponce" class="page-info">There are {{pagination.pagesAmount}} pages</p>
+    <p *ngIf="isResponce" class="page-info">You in {{pagination.currentPageNmb}} page</p>
+  </div>
+</div>
+
+
+
+
+<app-show-list [filmArray$]="filmArray$"></app-show-list>
+
+
