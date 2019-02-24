@@ -6,22 +6,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Firebase back-end
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This application has an authorization, so I use the FireBase Service.
+To install it you should run in terminal: `npm install firebase @angular/fire --save`
 
-## Build
+## Google Maps 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To install Google Maps you should run in terminal: `npm install @agm/core --save` and `npm install --save @types/googlemaps`
 
-## Running unit tests
+## Google address autocomplete
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This module is a wrapper for Google Places Autocomplete js library. 
+Run `npm install ngx-google-places-autocomplete`
 
-## Running end-to-end tests
+## Angular Material and Bootstap
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Application use both UI. To install them run: `npm install --save @angular/material @angular/cdk @angular/animations`
+and `npm install bootstrap`
