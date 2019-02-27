@@ -57,7 +57,7 @@ import { AuthService } from "./shared/services/auth/auth.service";
     MatListModule,
     MatSidenavModule,
 
-
+    
 
   ],
   providers: [AuthService],
